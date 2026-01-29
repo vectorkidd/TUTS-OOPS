@@ -3,7 +3,7 @@ class lolbook:
         self.username = ""
         self.password = ""
         self.logged_in = False
-        self.menu()
+        #self.menu()
 
     def menu(self):
         user_input = input("Welcome to Lolbook!! Please choose an option:\n" \
