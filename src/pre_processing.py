@@ -72,8 +72,8 @@ def main(text_column="text", target_column="target"):
     """Main function"""
 
     try:
-        train_data=pd.read_csv('data/train.csv')
-        test_data=pd.read_csv('data/test.csv')
+        train_data=pd.read_csv('data/raw/train.csv')
+        test_data=pd.read_csv('data/raw/test.csv')
         logger.info("Train and test data loaded successfully.")
 
         train_data = pre_process_df(train_data, text_column, target_column)
