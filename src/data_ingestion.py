@@ -40,7 +40,7 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the data by handling missing values."""
     try:
         initial_shape = df.shape
-        df = df.drop(columns=['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], inplace=True)
+        df.drop(columns=['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], inplace=True)
         df.rename(columns = {'v1': 'target', 'v2': 'text'}, inplace = True)
         final_shape = df.shape
         logger.debug(f"Preprocessed data: dropped rows with missing values. "
@@ -73,12 +73,12 @@ def main():
     try:
         test_size = 0.2
         random_state = 42
-        data_path = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/spam.csv'
-
+        
+        data_path = 'https://raw.githubusercontent.com/vectorkidd/TUTS-OOPS/refs/heads/main/experiments/spam.csv'
         df = load_data(data_url=data_path)
         final_df = preprocess_data(df)  
         train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=random_state)
-        save_data(train_data, test_data, data_path='data/')
+        save_data(train_data, test_data, data_path='./data')
         logger.info("Data ingestion completed successfully.")
     except Exception as e:
         logger.error(f"Data ingestion failed: {e}")
